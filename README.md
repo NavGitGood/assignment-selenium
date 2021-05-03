@@ -1,2 +1,3 @@
-# assignment-selenium
-Assignment to design a test automation framework using Java, Selenium, TestNG, Maven
+from C:\Users\navneetgupta01\Downloads\nagp-java\SeleniumMaven>, run this
+mvn -DsuiteXmlFile="src/test/resources/testng.xml" test
+
