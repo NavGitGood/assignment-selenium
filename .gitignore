@@ -23,4 +23,5 @@
 hs_err_pid*
 
 # reports
-output/
+*.html
+*.png
