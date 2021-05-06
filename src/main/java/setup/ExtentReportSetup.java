@@ -27,24 +27,24 @@ public class ExtentReportSetup extends Base
 
     public static ExtentReports extentReportSetup() {
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
-        String baseDirectory = System.getProperty("user.dir") + "/" + ConfigurationLoader.getPropertyValue("outputBaseDirectory");
+        String baseDirectory = System.getProperty("user.dir") + File.separator + ConfigurationLoader.getPropertyValue("outputBaseDirectory");
         String partialFolderName = ConfigurationLoader.getPropertyValue("latestReportDirectory");
         String archiveDirectoryName = ConfigurationLoader.getPropertyValue("archiveDirectory");
 
         String matchingName = Utils.matchPath(baseDirectory, partialFolderName);
 
-        String pathToBeDeleted = baseDirectory + "/" + matchingName;
+        String pathToBeDeleted = baseDirectory + File.separator + matchingName;
         try {
-            String archivePathToBeCreated = baseDirectory + "/" + archiveDirectoryName + "/" + matchingName.replace(partialFolderName, "report_");
-            Files.move(new File(pathToBeDeleted).toPath(), new File(archivePathToBeCreated + "/").toPath(), StandardCopyOption.REPLACE_EXISTING);
+            String archivePathToBeCreated = baseDirectory + File.separator + archiveDirectoryName + File.separator + matchingName.replace(partialFolderName, "report_");
+            Files.move(new File(pathToBeDeleted).toPath(), new File(archivePathToBeCreated + File.separator).toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
 //        Utils.emptyDirectory(pathToBeDeleted);
-        pathToBeCreated = baseDirectory + "/" + partialFolderName + "_" + timeStamp;
+        pathToBeCreated = baseDirectory + File.separator + partialFolderName + "_" + timeStamp;
         Utils.createDirectory(pathToBeCreated);
 
-        htmlReporter = new ExtentHtmlReporter(pathToBeCreated + "/ExtentReport.html");
+        htmlReporter = new ExtentHtmlReporter(pathToBeCreated + File.separator + "ExtentReport.html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
 

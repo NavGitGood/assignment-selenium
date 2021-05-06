@@ -68,7 +68,7 @@ public class TestListener extends ExtentReportSetup implements ITestListener
 
     public String takeScreenShot(String methodName, WebDriver driver) {
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        Path destFile = (new File(ExtentReportSetup.pathToBeCreated + "/" +methodName+".png")).toPath();
+        Path destFile = (new File(ExtentReportSetup.pathToBeCreated + File.separator + methodName + ".png")).toPath();
         try {
             Files.copy(scrFile.toPath(), destFile);
         } catch (IOException e) {
