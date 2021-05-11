@@ -31,6 +31,10 @@ public class Base {
         driver.get(ConfigurationLoader.getPropertyValue("url"));
     }
 
+    public void navigateToHomePage() {
+        driver.get(ConfigurationLoader.getPropertyValue("url"));
+    }
+
     @AfterSuite(alwaysRun = true)
     public static void tearDownDriver() {
         if (driver != null) {

@@ -13,7 +13,7 @@
 <!--        </groups>-->
         <classes>
             <class name="testCases.HomePageTest" />
-            <class name="testCases.LoginPageTest" />
+            <class name="testCases.CartPageTest" />
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -19,13 +19,4 @@ public class LoginPageTest extends Base {
         loginPage.signInBtn.click();
         Assert.assertEquals(driver.getCurrentUrl(), loginPage.URL);
     }
-
-    @Test(priority = 2, description = "Verify Value in Email Field")
-    public void assertValueInEmailField() {
-        loginPage.emailTxt.sendKeys("nagp@gmail.com");
-        System.out.println(loginPage.emailTxt.getAttribute("value"));
-        loginPage.passwordTxt.sendKeys("somepassword");
-        System.out.println(loginPage.passwordTxt.getAttribute("value"));
-//        Assert.assertEquals(driver.getCurrentUrl(), loginPage.URL);
-    }
 }

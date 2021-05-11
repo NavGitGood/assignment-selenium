@@ -12,13 +12,13 @@ public class LoginPage extends Base {
     @FindBy(css = ".login")
     public WebElement signInBtn;
 
-    @FindBy(css = "#email")
+    @FindBy(id = "email")
     public WebElement emailTxt;
 
-    @FindBy(css = "#passwd")
+    @FindBy(id = "passwd")
     public WebElement passwordTxt;
 
-    @FindBy(css = "#SubmitLogin")
+    @FindBy(id = "SubmitLogin")
     public WebElement submitBtn;
 
     public LoginPage() {
