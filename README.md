@@ -7,6 +7,7 @@ Following browsers are supported:
 * InternetExplorer
 * Edge
 * Firefox
+
 To run in a particular browser, modify value of *browser* variable in *env.properties* using following mapping
   
   | Browser | Value |
