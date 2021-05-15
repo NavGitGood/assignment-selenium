@@ -1,6 +1,7 @@
 package pages;
 
 import helper.ActionHelper;
+import helper.Wrappers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 public class HomePage extends Base {
 
     ActionHelper actionHelper;
+    Wrappers wrapper;
 
     public String TITLE = "My Store";
     public List<String> MENU_ITEMS = Arrays.asList("WOMEN", "DRESSES", "T-SHIRTS");
@@ -37,6 +39,7 @@ public class HomePage extends Base {
     public HomePage() {
         PageFactory.initElements(driver, this);
         actionHelper = new ActionHelper();
+        wrapper = new Wrappers();
     }
 
     public List<String> getMenuListText() {
@@ -59,7 +62,7 @@ public class HomePage extends Base {
 
     public void addItemToCartAndClose(Integer index) {
         actionHelper.mouseOverAndClickSubElement(this.featuredItems.get(index), this.featuredItems.get(index).findElement(By.cssSelector(".ajax_add_to_cart_button")));
-        this.onAddBanner.findElement(By.cssSelector("[title='Close window']")).click();
+        wrapper.delayedClick(this.onAddBanner.findElement(By.cssSelector("[title='Close window']")));
     }
 
 }
