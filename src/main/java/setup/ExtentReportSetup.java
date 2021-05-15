@@ -22,7 +22,7 @@ public class ExtentReportSetup extends Base
     public static String pathToBeCreated = "";
 
     public static ExtentReports extentReportSetup() {
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         String baseDirectory = System.getProperty("user.dir") + File.separator + ConfigurationLoader.getPropertyValue("outputBaseDirectory");
         String partialFolderName = ConfigurationLoader.getPropertyValue("latestReportDirectory");
         String archiveDirectoryName = ConfigurationLoader.getPropertyValue("archiveDirectory");
@@ -36,7 +36,6 @@ public class ExtentReportSetup extends Base
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        Utils.emptyDirectory(pathToBeDeleted);
         pathToBeCreated = baseDirectory + File.separator + partialFolderName + "_" + timeStamp;
         Utils.createDirectory(pathToBeCreated);
 

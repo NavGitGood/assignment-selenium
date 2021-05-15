@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,15 +13,18 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
-import java.lang.invoke.SwitchPoint;
 import java.util.concurrent.TimeUnit;
 
 public class Base {
     public static WebDriver driver;
+    public static Integer explicitTimeout = Integer.parseInt(ConfigurationLoader.getPropertyValue("explicitTimeout"));
+    public static Integer implicitTimeout = Integer.parseInt(ConfigurationLoader.getPropertyValue("implicitTimeout"));
 
-    static {
+    @BeforeSuite(alwaysRun = true)
+    public static void setup() {
 
         switch(ConfigurationLoader.getPropertyValue("browser")) {
             case "chrome":
@@ -41,7 +43,7 @@ public class Base {
                 System.out.println("No browser provided");
                 System.exit(1);
         }
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.MILLISECONDS);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get(ConfigurationLoader.getPropertyValue("url"));
@@ -55,7 +57,7 @@ public class Base {
     }
 
     public static void setIE() {
-        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/drivers/IEDriverServer_new.exe");
+        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/drivers/IEDriverServer.exe");
         InternetExplorerOptions options = new InternetExplorerOptions();
         options.withInitialBrowserUrl("");
         options.ignoreZoomSettings();
@@ -87,7 +89,6 @@ public class Base {
             try {
                 driver.quit();
             } catch (WebDriverException e) {
-                System.out.println("***** CAUGHT EXCEPTION IN DRIVER TEARDOWN *****");
                 System.out.println(e);
             }
         }

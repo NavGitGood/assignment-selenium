@@ -3,18 +3,12 @@
 <suite name="Suite">
     <listeners>
         <listener class-name="setup.TestListener"/>
-<!--        <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter"/>-->
     </listeners>
-    <test thread-count="5" name="Test" parallel = "classes">
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="Regression" />-->
-<!--            </run>-->
-<!--        </groups>-->
+    <test thread-count="5" name="Test">
         <classes>
             <class name="testCases.HomePageTest" />
             <class name="testCases.CartPageTest" />
         </classes>
-    </test> <!-- Test -->
-</suite> <!-- Suite -->
+    </test>
+</suite>
 

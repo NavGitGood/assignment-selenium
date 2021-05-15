@@ -8,22 +8,22 @@ public class DataProviderClass {
     @DataProvider(name = "urlProvider")
     public static Object[][] urlDP(){
         Object[][] url = new Object[1][1];
-        url[0][0] = ConfigurationLoader.getPropertyValue("url"); // "http://automationpractice.com/index.php";
+        url[0][0] = ConfigurationLoader.getPropertyValue("url");
         return url;
     }
 
     @DataProvider(name = "loginProvider")
     public static Object[][] loginDP(){
         Object[][] loginDetails = new Object[1][2];
-        loginDetails[0][0] = ConfigurationLoader.getPropertyValue("email"); // "nagp@gmail.com";
-        loginDetails[0][1] = ConfigurationLoader.getPropertyValue("password"); // "123456";
+        loginDetails[0][0] = ConfigurationLoader.getPropertyValue("email");
+        loginDetails[0][1] = ConfigurationLoader.getPropertyValue("password");
         return loginDetails;
     }
 
     @DataProvider(name = "titleProvider")
     public static Object[][] titleDP(){
         Object[][] titleDetails = new Object[1][1];
-        titleDetails[0][0] = ConfigurationLoader.getPropertyValue("title"); // "My account - My Store";
+        titleDetails[0][0] = ConfigurationLoader.getPropertyValue("title");
         return titleDetails;
     }
 
