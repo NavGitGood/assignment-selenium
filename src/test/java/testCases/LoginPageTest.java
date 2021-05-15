@@ -17,6 +17,6 @@ public class LoginPageTest extends Base {
     @Test(priority = 1, description = "Verify Sign In Page URL")
     public void assertURLOfSignInPage() {
         loginPage.signInBtn.click();
-        Assert.assertEquals(driver.getCurrentUrl(), loginPage.URL);
+        Assert.assertEquals(driver.getCurrentUrl(), loginPage.signInURL);
     }
 }

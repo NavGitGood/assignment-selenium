@@ -31,17 +31,17 @@ public class HomePageTest extends Base {
         Assert.assertTrue(homePage.shopPhone.getText().contains(shopPhone),"Wrong Shop Phone");
     }
 
-    @Test(priority = 4, dataProvider = "storeAddressProvider", dataProviderClass = DataProviderClass.class, description = "Verify Shop Phone")
+    @Test(priority = 4, dataProvider = "storeAddressProvider", dataProviderClass = DataProviderClass.class, description = "Verify Store Address")
     public void assertStoreAddress(String storeAddress) {
         Assert.assertTrue(homePage.getStoreAddress().contains(storeAddress),"Wrong Store Address");
     }
 
-    @Test(priority = 5, dataProvider = "storePhoneProvider", dataProviderClass = DataProviderClass.class, description = "Verify Shop Phone")
+    @Test(priority = 5, dataProvider = "storePhoneProvider", dataProviderClass = DataProviderClass.class, description = "Verify Store Phone")
     public void assertStorePhone(String storePhone) {
         Assert.assertTrue(homePage.getStorePhone().contains(storePhone),"Wrong Store Phone");
     }
 
-    @Test(priority = 6, dataProvider = "storeEmailProvider", dataProviderClass = DataProviderClass.class, description = "Verify Shop Phone")
+    @Test(priority = 6, dataProvider = "storeEmailProvider", dataProviderClass = DataProviderClass.class, description = "Verify Store Email")
     public void assertStoreEmail(String storeEmail) {
         Assert.assertTrue(homePage.getStoreEmail().contains(storeEmail),"Wrong Store Email");
     }

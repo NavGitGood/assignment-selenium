@@ -7,12 +7,8 @@ import setup.Base;
 
 public class Wrappers extends Base {
 
-    public Integer timeout = 2000;
-
-    public Wrappers() { }
-
     public void delayedClick(WebElement element) {
-        new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, explicitTimeout).until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
 
