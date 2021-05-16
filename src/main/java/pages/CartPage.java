@@ -19,6 +19,4 @@ public class CartPage extends Base {
         // not using getText as it'll not return the innerText if element is hidden by css
         return this.shoppingCart.findElement(By.cssSelector(".ajax_cart_quantity")).getAttribute("innerText");
     }
-
-
 }

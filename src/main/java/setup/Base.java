@@ -43,7 +43,7 @@ public class Base {
                 System.out.println("No browser provided");
                 System.exit(1);
         }
-        driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get(ConfigurationLoader.getPropertyValue("url"));
@@ -59,6 +59,8 @@ public class Base {
     public static void setIE() {
         System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "IEDriverServer.exe");
         InternetExplorerOptions options = new InternetExplorerOptions();
+        options.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, false);
+        options.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
         options.withInitialBrowserUrl("");
         options.ignoreZoomSettings();
         driver = new InternetExplorerDriver(options);

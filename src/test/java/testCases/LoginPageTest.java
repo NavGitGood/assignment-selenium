@@ -17,6 +17,8 @@ public class LoginPageTest extends Base {
     @Test(priority = 1, description = "Verify Sign In Page URL")
     public void assertURLOfSignInPage() {
         loginPage.signInBtn.click();
-        Assert.assertEquals(driver.getCurrentUrl(), loginPage.signInURL);
+        // unable to use driver.getCurrentUrl() directly because of an issue in IE,
+        // causing it to return old url if there is no wait after click
+        Assert.assertEquals(loginPage.getLoginPageURL(), loginPage.signInURL);
     }
 }
