@@ -1,5 +1,9 @@
 Test Automation Framework
 
+To use this framework, either use the uploaded zip or clone from github
+
+`git clone https://github.com/NavGitGood/assignment-selenium.git`
+
 All configurations are loaded from properties file
 
 Following browsers are supported:
