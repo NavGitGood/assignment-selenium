@@ -52,12 +52,12 @@ public class Base {
     public static void setChrome() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("incognito");
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "/drivers/chromedriver.exe");
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "chromedriver.exe");
         driver = new ChromeDriver(options);
     }
 
     public static void setIE() {
-        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/drivers/IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "IEDriverServer.exe");
         InternetExplorerOptions options = new InternetExplorerOptions();
         options.withInitialBrowserUrl("");
         options.ignoreZoomSettings();
@@ -65,13 +65,13 @@ public class Base {
     }
 
     public static void setEdge() {
-        System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "/drivers/msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "msedgedriver.exe");
         driver = new EdgeDriver();
     }
 
     public static void setFirefox() {
-        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver.exe");
-        File pathBinary = new File("C:\\Users\\navneetgupta01\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "geckodriver.exe");
+        File pathBinary = new File(ConfigurationLoader.getPropertyValue("firefoxBinary"));
         FirefoxBinary firefoxBinary = new FirefoxBinary(pathBinary);
         DesiredCapabilities desired = DesiredCapabilities.firefox();
         FirefoxOptions options = new FirefoxOptions();

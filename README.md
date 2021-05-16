@@ -26,3 +26,7 @@ To run from command prompt, navigate to root directory of the project, and run e
 * mvn -DsuiteXmlFile="src/test/resources/testng_homepage.xml" test
 * mvn -DsuiteXmlFile="src/test/resources/testng_loginpage.xml" test
 
+Current report will be generated in a new folder (under output) with name *current_yyyyMMddHHmmss* while older report would be moved to *output/archived test results/older_folder*
+
+To run the test in firefox, make sure to add/update path to its binary in *firefoxBinary* in *env.properties*
+
